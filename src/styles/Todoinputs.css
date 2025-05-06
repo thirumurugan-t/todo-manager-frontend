@@ -1,0 +1,68 @@
+.Todoinputs {
+  display: flex;
+  margin: 30px auto 0 auto; /* Top margin 30px, auto horizontal margins */
+  align-items: center;
+  width: max-content;
+  justify-content: center;
+  gap: 300px;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+
+.Todoinputs h1{
+  display: flex;
+}
+.addtask{
+ display: flex;
+ padding:10px 35px;
+ background-color:lightgreen;
+ border:none;
+ border-radius:5px;
+ cursor:pointer;
+ gap:8px;
+ box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+ 
+}
+.addtask:hover{
+  transform: scale(1.05);
+  background-color: #38c172; 
+}
+
+
+  @media (max-width: 600px) {
+    .Todoinputs {
+     /* Stack inputs vertically */
+      /* gap: 10px; Full width items */
+     
+        gap: 60px;
+      
+    }
+  
+    .addtask {
+      display: flex;
+      padding: 15px 30px;
+      font-size: 20px;
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 1024px) {
+
+    .Todoinputs {
+      margin-left: auto;
+      margin-right: auto; /* Horizontally centers the container */
+      gap: clamp(20px, 26vw, 200px); /* Responsive gap */
+      font-size: clamp(18px, 2.5vw, 28px); /* Responsive font size */
+      flex-wrap: wrap; /* Allow wrap on smaller screens */
+   
+    }
+  
+    .addtask {
+      display: flex;
+      padding: 15px 30px;
+      font-size: 30px;
+    }
+
+
+  }
+  

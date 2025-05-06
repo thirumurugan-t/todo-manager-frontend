@@ -1,0 +1,29 @@
+
+  
+  .header {
+    background-image: url('../images/leaf.jpeg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    padding: 20px;
+    color: azure;
+    font-size: 70px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* 📱 Mobile */
+  @media (max-width: 600px) {
+    .header {
+      font-size: 45px;
+      padding: 21px;
+    }
+  }
+  
+  /* 📱 Tablets */
+  @media (min-width: 601px) and (max-width: 1024px) {
+  
+  }
+  

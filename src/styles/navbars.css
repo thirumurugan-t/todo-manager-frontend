@@ -1,0 +1,57 @@
+.navbars {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    grid-template-columns: auto auto auto;
+    gap: 2px;
+  }
+  
+  .navbar {
+    background-color: rgb(193, 211, 193);
+    padding: 10px 70px;
+    text-align: center; /* Centers the text within each navbar item */
+    cursor: pointer; /* Make the pointer cursor appear when hovering */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .navbar:hover {
+    background-color: green;
+    color: white;
+  }
+  
+  .navbar.active {
+    background-color: darkgreen; /* Darker background for the active item */
+    color: white;
+    font-weight: bold; /* Make the active item bold */
+    border-radius: 5px; /* Add some border radius for smoother corners */
+  }
+  
+ @media (max-width: 600px) {
+    .navbar {
+      font-size: 25px;
+      padding: 0px 15px;
+      /* margin-left: 12px; */
+    }
+    .navbars {
+      margin-top: 100px;
+      justify-content: center;
+      gap: 10px;
+    }
+
+  }
+
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .navbar {
+      font-size: clamp(16px, 2.5vw, 25px); /* Scales with screen size */
+      padding: 5px 10vw; /* 10% of screen width for horizontal padding */
+    }
+    
+    .navbars {
+      margin-top: 70px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(6px, 2vw, 20px); /* Responsive gap */
+    }
+  }
