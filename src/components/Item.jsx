@@ -12,27 +12,38 @@ const Item = ({ todos, setTodos }) => {
 
  
   const filteredTodos = todos.filter((todo) => {
-    if (!todo.deadline) return false;
+  if (!todo.deadline) return false;
 
-    try {
-      const formattedDeadline = format(new Date(todo.deadline), 'dd MMM yyyy');
-      const todayFormatted = format(new Date(), 'dd MMM yyyy');
+  try {
+    const deadlineDate = new Date(todo.deadline);
+    const todayDate = new Date();
 
-      switch (filterType) {
-        case 0:
-          return formattedDeadline === todayFormatted; // Today
-        case 1:
-          return formattedDeadline > todayFormatted;   // Pending
-        case 2:
-          return formattedDeadline < todayFormatted;   // Overdue
-        default:
-          return true;
-      }
-    } catch (err) {
-      console.error('Invalid date:', todo.deadline);
-      return false;
+    
+    deadlineDate.setHours(0, 0, 0, 0);
+    todayDate.setHours(0, 0, 0, 0);
+
+    switch (filterType) {
+      case 0:
+        // Today
+        return deadlineDate.getTime() === todayDate.getTime();
+
+      case 1:
+        // Pending
+        return deadlineDate.getTime() > todayDate.getTime();
+
+      case 2:
+        // Overdue
+        return deadlineDate.getTime() < todayDate.getTime();
+
+      default:
+        return true;
     }
-  });
+  } catch (err) {
+    console.error('Invalid date:', todo.deadline);
+    return false;
+  }
+});
+
 
   const fetchData = async () => {
     try {
